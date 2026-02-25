@@ -1,0 +1,8 @@
+# Istio binaries and config package
+istio-*/
+
+# Optional: macOS clutter
+.DS_Store
+
+# Go files (just in case they compile here)
+booking-service/booking-service

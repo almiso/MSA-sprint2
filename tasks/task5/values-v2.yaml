@@ -1,0 +1,9 @@
+version: v2
+replicaCount: 1
+
+service:
+  create: false
+
+env:
+  - name: ENABLE_FEATURE_X
+    value: "true"

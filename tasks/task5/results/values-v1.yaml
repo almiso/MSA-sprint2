@@ -1,0 +1,5 @@
+version: v1
+replicaCount: 1
+env:
+  - name: ENABLE_FEATURE_X
+    value: "false"

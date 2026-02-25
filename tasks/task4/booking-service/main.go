@@ -14,6 +14,11 @@ func main() {
 		fmt.Fprintf(w, "pong")
 	})
 
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprintf(w, "OK")
+	})
+
 	// TODO: Feature flag route
 	// if ENABLE_FEATURE_X=true, expose /feature
 	if enableFeatureX {

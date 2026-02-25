@@ -1,0 +1,30 @@
+{
+  "data": {
+    "bookingsByUser": [
+      {
+        "id": "b1",
+        "hotel": {
+          "name": null,
+          "city": "Seoul"
+        },
+        "discountPercent": 10,
+        "discountInfo": {
+          "finalDiscount": 10,
+          "description": "Summer special 10% off"
+        }
+      },
+      {
+        "id": "b2",
+        "hotel": {
+          "name": null,
+          "city": "Busan"
+        },
+        "discountPercent": 20,
+        "discountInfo": {
+          "finalDiscount": 20,
+          "description": "Winter special 20% off"
+        }
+      }
+    ]
+  }
+}

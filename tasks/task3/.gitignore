@@ -1,0 +1,14 @@
+node_modules/
+*.log
+npm-debug.log*
+.env.*
+*secret*
+*.pem
+.DS_Store
+thumbs.db
+.vscode/
+.idea/
+coverage/
+.nyc_output/
+dist/
+build/

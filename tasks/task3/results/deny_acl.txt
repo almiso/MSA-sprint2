@@ -1,0 +1,30 @@
+{
+  "errors": [
+    {
+      "message": "Forbidden: Cannot access these bookings",
+      "path": [
+        "bookingsByUser"
+      ],
+      "extensions": {
+        "code": "INTERNAL_SERVER_ERROR",
+        "stacktrace": [
+          "GraphQLError: Forbidden: Cannot access these bookings",
+          "    at downstreamServiceError (/app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:521:16)",
+          "    at /app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:341:59",
+          "    at Array.map (<anonymous>)",
+          "    at sendOperation (/app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:341:44)",
+          "    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+          "    at async /app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:255:49",
+          "    at async executeNode (/app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:200:17)",
+          "    at async /app/node_modules/@apollo/gateway/dist/executeQueryPlan.js:96:35",
+          "    at async /app/node_modules/@apollo/gateway/dist/index.js:112:38",
+          "    at async execute (file:///app/node_modules/@apollo/server/dist/esm/requestPipeline.js:227:28)"
+        ],
+        "serviceName": "booking"
+      }
+    }
+  ],
+  "data": {
+    "bookingsByUser": null
+  }
+}

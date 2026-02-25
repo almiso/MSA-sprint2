@@ -9,7 +9,7 @@ const typeDefs = gql`
     userId: String!
     hotelId: String!
     promoCode: String
-    discountPercent: Int
+    discountPercent: Float
   }
 
   type Query {
@@ -18,14 +18,31 @@ const typeDefs = gql`
 
 `;
 
+const MOCK_BOOKINGS = [
+  { id: 'b1', userId: 'user1', hotelId: 'test-hotel-1', promoCode: 'SUMMER', discountPercent: 10 },
+  { id: 'b2', userId: 'user1', hotelId: 'test-hotel-2', promoCode: 'WINTER', discountPercent: 20 },
+  { id: 'b3', userId: 'user2', hotelId: 'test-hotel-1', promoCode: null, discountPercent: null },
+];
+
 const resolvers = {
   Query: {
     bookingsByUser: async (_, { userId }, { req }) => {
-		// TODO: Реальный вызов к grpc booking-сервису или заглушка + ACL
+      const headerUserId = req.headers['userid'];
+      if (!headerUserId || headerUserId !== userId) {
+        throw new Error('Forbidden: Cannot access these bookings');
+      }
+      return MOCK_BOOKINGS.filter(b => b.userId === userId);
     },
   },
   Booking: {
-	  // TODO: Реальный вызов к grpc booking-сервису или заглушка + ACL
+    __resolveReference: ({ id }, { req }) => {
+      const headerUserId = req.headers['userid'];
+      const booking = MOCK_BOOKINGS.find(b => b.id === id);
+      if (!headerUserId || (booking && booking.userId !== headerUserId)) {
+        throw new Error('Forbidden');
+      }
+      return booking;
+    }
   },
 };
 
